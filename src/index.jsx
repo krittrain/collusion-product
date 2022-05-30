@@ -1,16 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
 import { hot } from "react-hot-loader/root";
-import Headline from "./components/Headline";
-import Timer from "./components/Timer";
-import Burger from "./assets/burger.svg";
+import Header from "./components/Header";
+import './index.css';
+
 
 const App = hot(() => (
   <div>
-    <Headline>Welcome to React.</Headline>
-    <Timer />
-
-    <Burger style={{ width: 200, color: "blue" }} />
+    <Header/>
   </div>
 ));
 

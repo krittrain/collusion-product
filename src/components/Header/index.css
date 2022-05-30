@@ -1,0 +1,27 @@
+
+.container {
+  padding: var(--medium-unit);
+  border: 1px solid var(--colors-gray-700);
+}
+
+.navigation {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.navigation > li {
+  margin: var(--small-unit);
+}
+
+.navigation > li:first-child {
+  flex-grow: 1;
+}
+
+
+
+.logo {
+  height:36px;
+}
+
+

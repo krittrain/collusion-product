@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Fira+Sans:ital,wght@0,100;0,200;0,400;1,100;1,300;1,400;1,500;1,900&family=Roboto:ital,wght@0,100;0,400;1,100&family=Source+Code+Pro:wght@300&display=swap');
+
+:root {
+  --base-unit: 6px;
+  --small-unit: var(--base-unit);
+  --medium-unit: calc(var(--small-unit) * 2);
+  --large-unit: calc(var(--medium-unit) * 2);
+  --colors-gray-100: #ffffff;
+  --colors-gray-200: #fbfaf8;
+  --colors-gray-300: #e7e3d9;
+  --colors-gray-700: #8a8370;
+  --colors-gray-800: #615f5b;
+  --colors-gray-900: #32332e;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
