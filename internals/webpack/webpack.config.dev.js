@@ -7,6 +7,7 @@ module.exports = merge(config, {
   devServer: {
     port: 3000,
     open: true,
+    historyApiFallback: { disableDotRule: true },
   },
 
   resolve: {
