@@ -1,0 +1,12 @@
+.dates{
+  display: flex;
+}
+
+.week{
+  flex-grow: 1;
+  height:400px;
+  text-align: right;
+  border-right: dashed 2px black;
+  padding: 10px;
+
+}
