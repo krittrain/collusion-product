@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import getData from "../../utils/api";
 import { addDays, lastDayOfWeek } from "date-fns";
 import css from "./index.css";
@@ -28,14 +28,27 @@ const Home = () => {
     weeks.push(i);
   }
 
+  const dataWithWeeks = data.map((i) => ({
+    ...i,
+    weeks: weeks.map((j) => ({ date: j, stories: i.stories })),
+  }));
+  console.log(dataWithWeeks);
+
   return (
     <div>
       <h1>Home</h1>
-      <div className={css.dates}>
-        {weeks.map((i) => (
-          <div className={css.week}>{i.toDateString()}</div>
-        ))}
-      </div>
+      {dataWithWeeks.map((j, index) => (
+        <div className={css.row}>
+          <div className={css.name}>{j.name}</div>
+          <div className={css.dates}>
+            {j.weeks.map((i) => (
+              <div className={css.week}>
+                {index === 0 ? i.date.toDateString() : ""}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

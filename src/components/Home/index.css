@@ -1,12 +1,24 @@
-.dates{
+.dates {
   display: flex;
+  flex-grow: 1;
 }
 
-.week{
+.week {
   flex-grow: 1;
-  height:400px;
+  min-height: 100px;
   text-align: right;
   border-right: dashed 2px black;
   padding: 10px;
+}
 
+.row{
+  display: flex;
+  border-bottom: solid 2px black;
+}
+
+.name{
+  display: flex;
+  align-items: flex-end;
+  padding:10px;
+  width:100px;
 }
