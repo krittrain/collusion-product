@@ -4,21 +4,28 @@
 }
 
 .week {
+  display: flex;
   flex-grow: 1;
+  flex-direction: column;
   min-height: 100px;
   text-align: right;
   border-right: dashed 2px black;
   padding: 10px;
+  width: 30%;
 }
 
-.row{
+.row {
   display: flex;
   border-bottom: solid 2px black;
 }
 
-.name{
+.name {
   display: flex;
   align-items: flex-end;
-  padding:10px;
-  width:100px;
+  padding: 10px;
+  width: 100px;
+}
+
+.flex {
+  flex: 1;
 }
