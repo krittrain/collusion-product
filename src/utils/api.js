@@ -46,7 +46,11 @@ const getReleaseData = () => {
       resolve([
         {
           name: "Release 10",
-          date: new Date("2022-06-23"),
+          date: new Date("2022-06-15"),
+        },
+        {
+          name: "Release 9",
+          date: new Date("2022-06-24"),
         },
       ]);
     }, 2000);

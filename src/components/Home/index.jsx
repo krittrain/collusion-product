@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getData, getReleaseData } from "../../utils/api";
-import { addDays, lastDayOfWeek } from "date-fns";
+import { addDays, differenceInDays, lastDayOfWeek } from "date-fns";
 import css from "./index.css";
 
 // getData().then((d) => console.log(d.map((i) => `<div>${i.name}</div>`)));
@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     getData().then((d) => setData(d));
-    getReleaseData().then((r)=>setReleases(r));
+    getReleaseData().then((r) => setReleases(r));
   }, []);
 
   console.log(releases);
@@ -26,7 +26,12 @@ const Home = () => {
     .sort((a, b) => a - b);
 
   const startWeek = lastDayOfWeek(dates[0]);
+  const firstDayWeek = addDays(startWeek, -7);
+
   const endWeek = lastDayOfWeek(dates[dates.length - 1]);
+
+  const daysInSeries = differenceInDays(endWeek, firstDayWeek);
+
   const weeks = [];
   for (let i = startWeek; i <= endWeek; i = addDays(i, 7)) {
     weeks.push(i);
@@ -43,7 +48,12 @@ const Home = () => {
       ),
     })),
   }));
-  console.log(dataWithWeeks);
+
+  const releasesInSeries = releases.filter(
+    (r) => r.date >= firstDayWeek && r.date <= endWeek
+  );
+
+  console.log(releasesInSeries);
 
   return (
     <div>
@@ -52,6 +62,17 @@ const Home = () => {
         <div className={css.row}>
           <div className={css.name}>{j.name}</div>
           <div className={css.dates}>
+            {releasesInSeries.map((r) => {
+              const days = differenceInDays(r.date, firstDayWeek);
+
+              return (
+                <div
+                  style={{ left: `${days / daysInSeries * 100}%` }}
+                  className={css.indicator}
+                ></div>
+              );
+            })}
+
             {j.weeks.map((i) => (
               <div className={css.week}>
                 {index === 0 ? i.date.toDateString() : ""}
